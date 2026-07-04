@@ -1,4 +1,4 @@
-# FundzFlow Architecture
+# Project Architecture
 
 Version: 1.0
 
@@ -6,45 +6,45 @@ Version: 1.0
 
 # Purpose
 
-FundzFlow is a fund administration platform for Private Equity and Venture Capital funds.
+This document describes the overall architecture of [YOUR PROJECT NAME].
 
-This document describes the overall architecture of the system.
-
-It is intended for developers, architects and AI assistants.
+It is intended for developers, architects, and AI assistants.
 
 ---
 
 # High-Level Architecture
 
+> Replace this diagram with your actual stack.
+
                     Browser
 
                         │
 
-               React + TypeScript
+               [Frontend Framework]
 
                         │
 
-                TanStack Query
+                [Data Fetching Layer]
 
                         │
 
-                  REST API
+                  REST / GraphQL API
 
                         │
 
-              Express + TypeScript
+              [Backend Framework]
 
                         │
 
-                 Business Layer
+                 Business Logic Layer
 
                         │
 
-                 Drizzle ORM
+                 [ORM / Query Layer]
 
                         │
 
-                  PostgreSQL
+                  [Database]
 
 ---
 
@@ -78,22 +78,21 @@ Every layer has a single responsibility.
 
 Technology
 
-- React
-- TypeScript
-- Vite
-- TanStack Query
-- Radix UI
-- shadcn/ui
+- [Framework, e.g. React / Vue / Svelte]
+- [Language, e.g. TypeScript]
+- [Build tool, e.g. Vite]
+- [Data fetching, e.g. TanStack Query / SWR]
+- [UI library, e.g. shadcn/ui / Tailwind]
 
 Responsibilities
 
 - Rendering
 - Forms
-- Validation
+- Validation (client-side only)
 - Navigation
 - User Interaction
 
-The frontend should not contain accounting logic.
+The frontend should not contain core domain logic.
 
 ---
 
@@ -101,9 +100,9 @@ The frontend should not contain accounting logic.
 
 Technology
 
-- Express
-- TypeScript
-- Drizzle ORM
+- [Framework, e.g. Express / Fastify / Django]
+- [Language, e.g. TypeScript / Python]
+- [ORM, e.g. Drizzle / Prisma / SQLAlchemy]
 
 Responsibilities
 
@@ -119,81 +118,42 @@ Responsibilities
 
 Technology
 
-PostgreSQL
+[Database, e.g. PostgreSQL / MySQL / SQLite]
 
 Source of truth for
 
-Funds
-
-Investors
-
-Capital Calls
-
-COA
-
-Journal Entries
-
-Banking
-
-Reports
+[List your main entities]
 
 ---
 
 # Core Modules
 
-Funds
+> List the main feature areas of your application.
 
-Investor Management
-
-Capital Calls
-
-Distributions
-
-Chart of Accounts
-
-Journal Entries
-
-Banking
-
-Capital Accounts
-
-Reporting
-
-Documents
-
-Management Fees
-
-Authentication
+- [Module 1]
+- [Module 2]
+- [Module 3]
+- Authentication
 
 ---
 
 # Module Relationships
 
-Funds
+> Document the dependency chain between your core entities.
+
+[Parent Entity]
 
 ↓
 
-Investors
+[Child Entity A]
 
 ↓
 
-Capital Calls
+[Child Entity B]
 
 ↓
 
-Drawdowns
-
-↓
-
-Journal Entries
-
-↓
-
-Bank Transactions
-
-↓
-
-Reports
+[Derived / Reporting Layer]
 
 ---
 
@@ -227,23 +187,9 @@ Frontend
 
 ---
 
-# Business Principles
-
-Double-entry accounting.
-
-Auditability.
-
-Historical integrity.
-
-No silent data modification.
-
-No duplicated business logic.
-
----
-
 # Shared Utilities
 
-Currency Formatting
+Currency / Unit Formatting
 
 Date Formatting
 
@@ -295,38 +241,23 @@ Performance
 
 Security
 
-Financial Accuracy
+Domain Accuracy
 
 ---
 
 # Future Architecture
 
-Service Layer
+> List planned improvements or extensions.
 
-Background Jobs
-
-Notification Queue
-
-Audit Trail
-
-Approval Workflow
-
-Report Engine
-
-Document Engine
-
-Permission Engine
+- [Planned feature A]
+- [Planned feature B]
 
 ---
 
 # Source Documents
 
-ai/context.md
+ai-ProjectSpecs/project-context.md
 
-ai/business-rules.md
+ai-ProjectSpecs/project-rules.md
 
-planning/BACKLOG.md
-
-specifications/
-
-investigations/
+ai-ProjectSpecs/project-map.md

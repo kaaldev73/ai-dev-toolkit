@@ -9,7 +9,7 @@ Paste the contents of `project-context.md` into your AI session, or reference th
 ## Prompt Template
 
 ```
-You are working on FundzFlow, an AIF fund administration platform.
+You are working on [YOUR PROJECT NAME], a [brief description].
 
 Read the following project context before proceeding:
 

@@ -1,6 +1,6 @@
 # Business Rules
 
-Project: FundzFlow
+Project: [YOUR PROJECT NAME]
 
 Version: 1.0
 
@@ -8,23 +8,23 @@ Version: 1.0
 
 # Purpose
 
-This document defines the business rules of FundzFlow.
+This document defines the business rules of [YOUR PROJECT NAME].
 
 These rules are mandatory.
 
 AI must never invent or modify business rules without explicit approval.
 
-Financial correctness is more important than code simplicity.
+Domain correctness is more important than code simplicity.
 
 ---
 
 # Core Principles
 
-FundzFlow is a fund administration platform.
+[YOUR PROJECT NAME] is a [domain type] platform.
 
 Every operation must preserve:
 
-- Financial accuracy
+- Data accuracy
 - Data integrity
 - Auditability
 - Historical accuracy
@@ -32,109 +32,63 @@ Every operation must preserve:
 
 ---
 
-# Funds
+# [Core Entity 1]
 
-A Fund represents an investment vehicle.
+A [Entity 1] represents [description].
 
-A Fund owns
+A [Entity 1] owns:
 
-- Investors
-- Capital Calls
-- Distributions
-- Journal Entries
-- Bank Accounts
-- Reports
-- Documents
+- [Child entity A]
+- [Child entity B]
+- [Child entity C]
 
-Deleting a Fund must never silently delete historical accounting records.
+Deleting a [Entity 1] must never silently delete historical records.
 
 ---
 
-# Investors
+# [Core Entity 2]
 
-Every Investor belongs to one or more Funds.
+Every [Entity 2] belongs to one or more [Entity 1]s.
 
-Each Investor maintains
+Each [Entity 2] maintains:
 
-- Commitment
-- Contributions
-- Distributions
-- Capital Account
-- Drawdowns
-
-Investor Commitment is the source for future capital call calculations.
+- [Attribute A]
+- [Attribute B]
+- [Attribute C]
 
 ---
 
-# Investor Commitment
+# [Core Workflow]
 
-Changing an Investor Commitment affects
+A [Workflow Event] triggers:
 
-- Future Capital Calls
+- [Step 1]
+- [Step 2]
+- [Step 3]
+- [Step 4]
 
-It may also require recalculation of
-
-- Drawdowns
-- Capital Accounts
-- Reports
-
-Historical accounting entries must not be modified automatically.
+Changing [a workflow event] requires recalculating all dependent data.
 
 ---
 
-# Capital Calls
+# Derived Data
 
-A Capital Call requests capital from Investors.
+Derived data includes:
 
-Changing a Capital Call affects
+- [Derived entity A]
+- [Derived entity B]
 
-- Drawdowns
-- Capital Accounts
-- Investor Status
-- Journal Entries
-- Reports
-- PDFs
-- Email Notifications
+Derived data should be recalculated.
 
-Changing call percentage requires recalculating dependent records.
+Never manually synchronize values.
 
 ---
 
-# Drawdowns
+# Data Integrity
 
-Drawdowns are derived data.
+[Primary records] should not be hard-deleted if referenced by other records.
 
-They should never become inconsistent with
-
-- Investor Commitment
-- Capital Call Percentage
-
-Derived data should be regenerated rather than manually edited.
-
----
-
-# Distributions
-
-Distributions represent capital returned to Investors.
-
-Distributions affect
-
-- Capital Accounts
-- Journal Entries
-- Reports
-- Investor History
-
-Historical distributions must remain auditable.
-
----
-
-# Chart of Accounts (COA)
-
-Every Journal Entry references valid COA accounts.
-
-COA accounts should not be hard-deleted if referenced.
-
-Prefer
+Prefer:
 
 Soft Delete
 
@@ -146,89 +100,36 @@ over deletion.
 
 ---
 
-# Journal Entries
+# Audit Trail
 
-Journal Entries follow double-entry accounting.
+Important operations should be traceable.
 
-Rules
+Every important change should record:
 
-Total Debit == Total Credit
+- Timestamp
+- User
+- Previous Value
+- New Value
 
-Every line references a valid COA account.
-
-Journal Entries become part of the permanent audit trail.
-
----
-
-# Banking
-
-Bank Transactions are generated from accounting events.
-
-Editing historical bank records may require recalculating balances.
-
-Balance history must remain consistent.
+Never silently modify historical data.
 
 ---
 
-# Capital Accounts
+# Transactions
 
-Capital Accounts summarize
+Operations affecting multiple tables should use database transactions.
 
-- Commitments
-- Contributions
-- Distributions
-- NAV
-- Balance
-
-Capital Accounts are reporting objects.
-
-Avoid manual editing.
+If one step fails, the entire operation should roll back.
 
 ---
 
-# Reports
+# Currency / Units
 
-Reports are derived from accounting data.
+[If applicable: describe how currency, units, or locale-sensitive values are handled.]
 
-Reports should never become the source of truth.
+Never hardcode symbols or locale-specific formats.
 
-The database remains the source of truth.
-
----
-
-# Documents
-
-Documents
-
-- Capital Call Notices
-- Distribution Notices
-- Statements
-
-must reflect the latest approved data.
-
-Documents generated before edits may require regeneration.
-
----
-
-# Currency
-
-Every Fund has its own currency.
-
-Currency formatting must always use
-
-Fund.currency
-
-Never hardcode
-
-₹
-
-$
-
-€
-
-£
-
-or any symbol.
+Always derive formatting from a centralized configuration.
 
 ---
 
@@ -244,7 +145,7 @@ Historical dates must not change due to browser timezone.
 
 # Validation
 
-Validate
+Validate:
 
 Frontend
 
@@ -256,119 +157,38 @@ Never rely on client validation alone.
 
 ---
 
-# Derived Data
+# Reports / Derived Views
 
-Derived data includes
+Reports are derived from source data.
 
-- Drawdowns
-- Capital Accounts
-- Reports
-- PDFs
+Reports should never become the source of truth.
 
-Derived data should be recalculated.
-
-Never manually synchronize values.
-
----
-
-# Audit Trail
-
-Financial operations should be traceable.
-
-Every important change should record
-
-- Timestamp
-- User
-- Previous Value
-- New Value
-
-Never silently modify historical financial data.
-
----
-
-# Transactions
-
-Operations affecting multiple tables should use database transactions.
-
-Examples
-
-Capital Call
-
-↓
-
-Drawdowns
-
-↓
-
-Journal
-
-↓
-
-Bank
-
-↓
-
-Reports
-
-If one step fails,
-
-the entire operation should roll back.
-
----
-
-# Financial Integrity
-
-Financial correctness has higher priority than
-
-- Performance
-- UI
-- Convenience
-
-Never sacrifice accounting correctness.
+The database remains the source of truth.
 
 ---
 
 # AI Rules
 
-Never
+Never:
 
-Guess accounting behavior.
-
-Assume financial calculations.
-
-Change business rules.
-
-Delete historical accounting records.
-
-Hard-delete COA records.
-
-Modify journal entries without understanding downstream impact.
+- Guess domain behavior.
+- Assume business calculations.
+- Change business rules without approval.
+- Delete historical records.
+- Hard-delete records referenced by other tables.
+- Modify audit trails.
 
 ---
 
 # Source of Truth
 
-Funds
-
-↓
-
-Investors
-
-↓
-
-Capital Calls
-
-↓
-
-Journal Entries
-
-↓
-
-Bank Transactions
-
-↓
-
-Reports
+[Entity 1]
+    ↓
+[Entity 2]
+    ↓
+[Events / Transactions]
+    ↓
+[Reports / Derived Views]
 
 Reports are generated from data.
 
@@ -378,11 +198,8 @@ Reports never own data.
 
 # Current Known Risks
 
-- Capital Call edits may not propagate correctly.
-- Drawdowns can become stale.
-- Currency formatting is duplicated.
-- Date handling is inconsistent.
-- COA validation is incomplete.
-- Bank balances may become inconsistent after edits.
+- [Risk 1]
+- [Risk 2]
+- [Risk 3]
 
 These issues should be fixed without violating the business rules above.

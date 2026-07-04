@@ -1,7 +1,5 @@
 # AI Coding Rules
 
-Project: FundzFlow
-
 Version: 1.0
 
 ---
@@ -67,7 +65,9 @@ Do not move folders without approval.
 
 ---
 
-# TypeScript Rules
+# Language / Typing Rules
+
+> Adapt to your project's language. Example shown for TypeScript.
 
 Use strict typing.
 
@@ -169,8 +169,6 @@ Protect referential integrity.
 
 Avoid orphaned records.
 
-Never hard-delete accounting data.
-
 Use soft deletes where history matters.
 
 ---
@@ -248,10 +246,6 @@ Always use shared utilities.
 
 # Date Rules
 
-Never use
-
-new Date("YYYY-MM-DD")
-
 Use centralized date utilities.
 
 Store dates consistently.
@@ -260,25 +254,16 @@ Avoid timezone ambiguity.
 
 ---
 
-# Currency Rules
+# Domain-Specific Rules
 
-Never hardcode symbols.
+> Add your project's non-negotiable domain rules here.
+> Example: "Every [critical operation] must preserve [domain invariant]."
 
-Always derive currency from
+[Rule 1]
 
-Fund.currency
+[Rule 2]
 
----
-
-# Accounting Rules
-
-Preserve double-entry accounting.
-
-Journal entries must balance.
-
-Never bypass validation.
-
-Never modify historical financial records without audit.
+[Rule 3]
 
 ---
 
@@ -344,7 +329,7 @@ Confirm
 
 ✔ No dead code
 
-✔ No TypeScript errors
+✔ No type errors
 
 ✔ No lint errors
 
@@ -360,7 +345,7 @@ Ask questions.
 
 Do not invent business rules.
 
-Do not assume accounting behavior.
+Do not assume domain behavior.
 
 Do not implement speculative features.
 

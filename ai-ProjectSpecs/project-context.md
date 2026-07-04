@@ -1,62 +1,47 @@
 # AI Context
 
-Project: FundzFlow
+Project: [YOUR PROJECT NAME]
 Version: 1.0
-Last Updated: 2026-06-30
+Last Updated: [DATE]
 
 ---
 
 # Purpose
 
-FundzFlow is a private equity / venture capital fund administration platform.
+[YOUR PROJECT NAME] is a [brief one-line description of the application].
 
 It manages:
 
-- Funds
-- Investors
-- Capital Calls
-- Distributions
-- Chart of Accounts (COA)
-- Journal Entries
-- Banking
-- Capital Accounts
-- Reports
-- Documents
-- Management Fees
+- [Core entity 1]
+- [Core entity 2]
+- [Core entity 3]
+- [Add more as needed]
 
-The application is intended to provide an end-to-end fund accounting workflow.
+The application is intended to [describe the end-to-end workflow it supports].
 
 ---
 
 # AI Roles
 
-ChatGPT
+> Assign AI tools to roles based on your team's preferences.
+
+[AI Tool A]
 - System Architect
 - Technical Reviewer
-- Product Owner
 - Specification Writer
-- Documentation Author
-- Root Cause Analysis
 
-Claude
+[AI Tool B]
 - Software Engineer
-- Refactoring
 - Feature Implementation
 - Bug Fixing
 - Code Generation
 - Repository Investigation
 
-OpenRouter
+[AI Tool C]
 - Documentation
 - README
 - API Documentation
-- User Guide
-- Developer Guide
 - Release Notes
-
-Never use Claude for large documentation.
-
-Never use OpenRouter for architectural decisions.
 
 ---
 
@@ -90,11 +75,13 @@ Avoid duplicate business logic.
 
 Business rules belong in the backend.
 
-The frontend should not contain accounting logic.
+The frontend should not contain core domain logic.
 
 ---
 
 # Coding Standards
+
+[List language/style preferences here, e.g.:]
 
 TypeScript strict mode.
 
@@ -114,48 +101,35 @@ Do not introduce unnecessary dependencies.
 
 # Project Structure
 
-client/
-    React + TypeScript + Vite
+[frontend-dir]/
+    [Frontend framework + language]
 
-server/
-    Express + TypeScript
+[backend-dir]/
+    [Backend framework + language]
 
-database/
-    PostgreSQL
+[database-dir]/
+    [Database technology]
 
 ORM
-    Drizzle
+    [ORM name]
 
 UI
-    ShadCN
-    Radix UI
+    [UI library]
 
 Data Fetching
-    TanStack Query
+    [Data fetching library]
 
 ---
 
 # Business Rules
 
-Every accounting operation must preserve double-entry accounting.
+[List the non-negotiable business rules for your domain, e.g.:]
 
-Journal Entries must always balance.
+Every [critical operation] must preserve [invariant].
 
-Never hard-delete accounting records.
+Never hard-delete [sensitive record type].
 
 Prefer soft delete where historical records exist.
-
-Capital Calls affect:
-
-- Investors
-- Drawdowns
-- Journal Entries
-- Bank Transactions
-- Reports
-
-Changing a Capital Call requires recalculating all dependent data.
-
-Investor Commitment changes may require drawdown recalculation.
 
 ---
 
@@ -176,23 +150,9 @@ Never duplicate:
 
 Store dates consistently.
 
-Avoid direct usage of:
-
-new Date("YYYY-MM-DD")
-
-Always use centralized date utilities.
-
 Avoid timezone ambiguity.
 
----
-
-# Currency Rules
-
-Never hardcode currency symbols.
-
-Always derive currency from:
-
-Fund.currency
+Always use centralized date utilities.
 
 ---
 
@@ -288,27 +248,9 @@ Do not generate verbose documentation unless requested.
 
 # Current Priorities
 
-1. Dashboard navigation
-
-2. Edit / Save issues
-
-3. Date handling
-
-4. Number formatting
-
-5. COA creation
-
-6. Bank entry flow
-
-7. Capital Call recalculation
-
-8. PDF generation
-
-9. Mail Merge
-
-10. Management Fee
-
-11. Capital Account Reporting
+1. [Priority 1]
+2. [Priority 2]
+3. [Priority 3]
 
 ---
 
@@ -316,19 +258,9 @@ Do not generate verbose documentation unless requested.
 
 Refer to:
 
-BUG_MAP.md
+[YOUR_BUG_MAP.md]
 
-SYSTEM_MAP.md
-
-DATABASE_MAP.md
-
-API_MAP.md
-
-SAVE_FLOW.md
-
-DEPENDENCY_GRAPH.md
-
-TECH_DEBT.md
+[YOUR_SYSTEM_MAP.md]
 
 ---
 
@@ -337,17 +269,11 @@ TECH_DEBT.md
 Before modifying code:
 
 1. Understand the affected module.
-
 2. Search for existing implementations.
-
 3. Reuse existing utilities.
-
 4. Avoid introducing duplicate logic.
-
 5. Minimize file changes.
-
 6. Preserve backward compatibility.
-
 7. Explain architectural implications before major refactors.
 
 If requirements are unclear,
@@ -356,4 +282,4 @@ STOP
 
 and ask for clarification.
 
-Never guess financial or accounting rules.
+Never guess domain-specific rules.

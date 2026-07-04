@@ -1,45 +1,40 @@
 # Project Map
 
+> List the key files and directories in your project so AI assistants can orient quickly.
 
-## server
+---
 
-- server/db.js
-- server/email.js
-- server/index.js
-- server/middleware/audit.js
-- server/middleware/auth.js
-- server/routes/archive.js
-- server/routes/audit-log.js
-- server/routes/auth.js
-- server/routes/banking.js
-- server/routes/capital-calls.js
-- server/routes/coa.js
-- server/routes/compliance.js
-- server/routes/distributions.js
-- server/routes/documents.js
-- server/routes/drawdowns.js
-- server/routes/fee-accruals.js
-- server/routes/funds.js
-- server/routes/investors.js
-- server/routes/journal.js
-- server/routes/kyc.js
-- server/routes/nav.js
-- server/routes/notify.js
-- server/routes/performance.js
-- server/routes/portfolio.js
-- server/routes/search.js
-- server/routes/securities.js
-- server/routes/transactions.js
-- server/routes/users.js
-- server/schema.sql
-- server/seed-admin.js
-- server/seed-demo.js
+## Backend / Server
 
-## pages
+- [server entry point, e.g. server/index.js]
+- [database connection file]
+- [middleware/auth.js]
+- [middleware/logging.js]
+- [routes/entity-a.js]
+- [routes/entity-b.js]
+- [routes/auth.js]
+- [schema file, e.g. server/schema.sql]
+- [seed files]
 
-- pages/auth/admin-login.html
-- pages/auth/login.html
-- pages/auth/signup.html
-- pages/dashboard/index.html
-- pages/funds/fund-list.html
-- pages/funds/fund-new.html
+## Frontend / Client
+
+- [client entry point]
+- [pages/auth/login]
+- [pages/dashboard]
+- [pages/entity-a/list]
+- [pages/entity-a/detail]
+
+## Shared / Config
+
+- [.env.example]
+- [package.json or requirements.txt]
+- [tsconfig.json or equivalent]
+
+## Database
+
+- [schema migration files]
+- [seed data files]
+
+---
+
+> Update this file whenever you add a significant new route, page, or module.
