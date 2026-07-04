@@ -1,0 +1,43 @@
+from models.work_item import WorkItem
+from services.numbering_service import NumberingService
+
+
+class WorkItemFactory:
+    """
+    Factory responsible for creating WorkItem objects.
+    """
+
+    PREFIXES = {
+        "bug": "BUG",
+        "feature": "FEAT",
+        "refactor": "REF",
+    }
+
+    @classmethod
+    def create(
+        cls,
+        work_type: str,
+        title: str,
+    ) -> WorkItem:
+        """
+        Creates a new WorkItem.
+        """
+
+        work_type = work_type.lower().strip()
+
+        if work_type not in cls.PREFIXES:
+            raise ValueError(f"Unsupported work type: {work_type}")
+
+        if not title or not title.strip():
+            raise ValueError("Title cannot be empty.")
+
+        prefix = cls.PREFIXES[work_type]
+
+        number = NumberingService.get_next_number(prefix)
+
+        return WorkItem(
+            prefix=prefix,
+            number=number,
+            work_type=work_type,
+            title=title,
+        )
