@@ -18,11 +18,11 @@ You are only collecting facts.
 
 Read
 
-1. ai/context.md
+1. ai-ProjectSpecs/project-context.md
 
-2. ai/workflow.md
+2. ai-framework/workflow.md
 
-3. ai/business-rules.md
+3. ai-ProjectSpecs/project-rules.md
 
 4. Relevant investigation request
 

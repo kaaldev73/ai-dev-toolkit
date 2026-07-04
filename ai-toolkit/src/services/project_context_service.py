@@ -6,11 +6,11 @@ from config.config import CONTEXT_ROOT
 class ProjectContextService:
 
     _FILES = {
-        "project_context": Path(".ai") / "project-context.md",
-        "project_rules":   Path(".ai") / "project-rules.md",
-        "coding_rules":    Path(".ai") / "coding-rules.md",
-        "workflow":        Path(".ai") / "workflow.md",
-        "architecture":    Path("docs") / "ARCHITECTURE.md",
+        "project_context": Path("ai-ProjectSpecs") / "project-context.md",
+        "project_rules":   Path("ai-ProjectSpecs") / "project-rules.md",
+        "coding_rules":    Path("ai-framework") / "coding-rules.md",
+        "workflow":        Path("ai-framework") / "workflow.md",
+        "architecture":    Path("ai-framework") / "standards" / "architecture.md",
         "backlog":         Path("planning") / "BACKLOG.md",
     }
 

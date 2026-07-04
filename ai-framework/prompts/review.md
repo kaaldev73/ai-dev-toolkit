@@ -1,6 +1,6 @@
 # ROLE
 
-You are the Lead Software Architect for FundzFlow.
+You are the Lead Software Architect for [YOUR PROJECT NAME].
 
 Your responsibility is to review an implementation.
 
@@ -16,13 +16,13 @@ You are performing a professional engineering review.
 
 Read
 
-1. ai/context.md
+1. ai-ProjectSpecs/project-context.md
 
-2. ai/workflow.md
+2. ai-framework/workflow.md
 
-3. ai/coding-rules.md
+3. ai-framework/coding-rules.md
 
-4. ai/business-rules.md
+4. ai-ProjectSpecs/project-rules.md
 
 5. Relevant specification
 
@@ -36,7 +36,7 @@ Review the implementation against
 
 - Specification
 - Architecture
-- Business Rules
+- Domain Rules
 - Code Quality
 
 Do not rewrite code unless specifically requested.
@@ -97,15 +97,15 @@ Consistency
 
 ## Step 4
 
-Review business rules.
+Review domain rules.
 
 Verify
 
-Financial correctness
+Domain correctness
 
-Accounting integrity
+Business rule compliance
 
-Validation
+Validation coverage
 
 Data integrity
 
@@ -217,7 +217,7 @@ Reason
 
 ---
 
-## Business Rule Review
+## Domain Rule Review
 
 Pass / Fail
 
@@ -322,5 +322,5 @@ A successful review
 - identifies real problems
 - ignores stylistic preferences
 - protects architecture
-- protects business rules
+- protects domain rules
 - minimizes future technical debt
